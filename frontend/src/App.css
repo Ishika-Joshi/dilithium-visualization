@@ -38,7 +38,7 @@
   background-color: #1976d2;
   color: white;
   cursor: pointer;
-  transition: background 0.2s;
+  /* transition: background 0.2s; */
   text-align: center;
   box-sizing: border-box;
 }
@@ -82,7 +82,7 @@
   background-color: #1976d2;
   color: white;
   cursor: pointer;
-  transition: background 0.2s;
+  /* transition: background 0.2s; */
 }
 
 .process-btn:hover {
@@ -103,7 +103,7 @@
   background-color: #374151;
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  /* transition: background 0.2s, transform 0.2s; */
   margin-top: 2rem;
   margin-bottom: 1rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
