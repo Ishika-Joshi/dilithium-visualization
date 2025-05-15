@@ -32,20 +32,15 @@ git submodule update --init --recursive
 
 ## Backend Setup (Flask API)
 
-1. **Navigate to the backend directory:**
 
-    ```sh
-    cd backend
-    ```
-
-2. **Install Python dependencies:**
+1. **Install Python dependencies:**
 
     ```sh
     pip install -r requirements.txt
     ```
 
 
-3. **Run the backend server:**
+2. **Run the backend server:**
 
     ```sh
     python main_api.py
