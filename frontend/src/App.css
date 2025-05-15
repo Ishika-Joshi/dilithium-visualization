@@ -117,3 +117,154 @@
   transform: translateX(-4px);
 }
 
+.comparison-output-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.comparison-output-col {
+  background: #23272f;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem 1.2rem;
+  min-width: 220px;
+  max-width: 260px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.98rem; /* Make content font smaller */
+}
+
+.comparison-output-col h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #90caf9;
+  font-size: 1.08rem; /* Slightly larger than content */
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Container for the whole process page */
+.process-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #fff;
+}
+
+/* Each step section */
+.process-section {
+  margin: 2rem 0;
+  padding: 1.5rem 1rem;
+  background: #23272f;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Key output row (public/private/time) */
+.key-output-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.key-output-row > div {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+/* Labels and inputs */
+.process-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #90caf9;
+}
+
+.process-section input,
+.process-section textarea,
+.process-section select {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #b0bec5;
+  background: #1a1d23;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.process-section textarea {
+  min-height: 60px;
+  font-family: monospace;
+  font-size: 0.98rem;
+}
+
+/* Smaller font for key and signature textareas */
+.process-section textarea,
+.key-output-row textarea {
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+/* Buttons */
+.process-section button,
+.process-container .back-btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  /* transition: background 0.2s; */
+}
+
+.process-section button:disabled {
+  background-color: #90a4ae;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.process-section button:hover:not(:disabled),
+.process-container .back-btn:hover {
+  background-color: #1565c0;
+}
+
+/* Verification result */
+.process-section strong {
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .key-output-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  background: #1a1d23;
+  color: #fff;
+  border-radius: 6px;
+  border: 1px solid #b0bec5;
+  padding: 0.5rem;
+  resize: vertical;
+}
+
