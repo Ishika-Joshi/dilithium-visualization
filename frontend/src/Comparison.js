@@ -80,7 +80,7 @@ function Comparison({ onBack }) {
           <div
             style={{
               maxWidth: 1100,
-              minWidth: 1000,
+              minWidth: 750,
               margin: '2.5rem auto',
               background: '#23272f',
               borderRadius: '10px',
