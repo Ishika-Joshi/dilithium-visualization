@@ -127,6 +127,25 @@ function Comparison({ onBack }) {
                     backgroundColor: 'rgba(0, 188, 212, 0.7)',
                     yAxisID: 'y1',
                   },
+                  // Cycles datasets (on y2)
+                  {
+                    label: 'Keygen Cycles',
+                    data: variants.map(v => v.keygen_cycles),
+                    backgroundColor: 'rgba(255, 87, 34, 0.7)',
+                    yAxisID: 'y2',
+                  },
+                  {
+                    label: 'Signing Cycles',
+                    data: variants.map(v => v.signing_cycles),
+                    backgroundColor: 'rgba(205, 220, 57, 0.7)',
+                    yAxisID: 'y2',
+                  },
+                  {
+                    label: 'Verification Cycles',
+                    data: variants.map(v => v.verification_cycles),
+                    backgroundColor: 'rgba(121, 85, 72, 0.7)',
+                    yAxisID: 'y2',
+                  },
                 ],
               }}
               options={{
@@ -134,7 +153,7 @@ function Comparison({ onBack }) {
                 maintainAspectRatio: false,
                 plugins: {
                   legend: { position: 'top' },
-                  title: { display: true, text: 'Dilithium Variant Comparison (Time & Size)' },
+                  title: { display: true, text: 'Dilithium Variant Comparison (Time, Size & Cycles)' },
                 },
                 scales: {
                   y: {
@@ -143,24 +162,30 @@ function Comparison({ onBack }) {
                     title: { display: true, text: 'Time (seconds)' },
                     min: 0,
                     max: 1,
-                    ticks: {
-                      stepSize: 0.1,
-                    },
+                    ticks: { stepSize: 0.1 },
                   },
                   y1: {
                     type: 'linear',
                     position: 'right',
                     title: { display: true, text: 'Size (bytes)' },
                     min: 0,
-                    max: 5000, // Adjust this max value to fit your data range
-                    ticks: {
-                      stepSize: 500,
-                    },
+                    max: 5000,
+                    ticks: { stepSize: 500 },
                     grid: { drawOnChartArea: false },
+                  },
+                  y2: {
+                    type: 'linear',
+                    position: 'right',
+                    title: { display: true, text: 'Cycles' },
+                    min: 0,
+                    max: Math.max(...variants.map(v => Math.max(v.keygen_cycles, v.signing_cycles, v.verification_cycles))) * 1.1,
+                    ticks: { stepSize: 50000000 }, // Adjust step size as needed
+                    grid: { drawOnChartArea: false },
+                    offset: true,
                   },
                 },
               }}
-              height={520} // Increased height for better readability
+              height={520}
             />
           </div>
         </>
