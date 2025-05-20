@@ -66,11 +66,14 @@ function Comparison({ onBack }) {
               <div className="comparison-output-col" key={variant.name}>
                 <h3>{variant.name}</h3>
                 <p><strong>Keygen Time:</strong> {variant.keygen_time.toFixed(6)}s</p>
+                <p><strong>Keygen Cycles:</strong> {variant.keygen_cycles.toLocaleString()}</p>
                 <p><strong>Public Key Size:</strong> {variant.pk_size} bytes</p>
                 <p><strong>Private Key Size:</strong> {variant.sk_size} bytes</p>
                 <p><strong>Signing Time:</strong> {variant.signing_time.toFixed(6)}s</p>
+                <p><strong>Signing Cycles:</strong> {variant.signing_cycles.toLocaleString()}</p>
                 <p><strong>Signature Size:</strong> {variant.sig_size} bytes</p>
                 <p><strong>Verification Time:</strong> {variant.verification_time.toFixed(6)}s</p>
+                <p><strong>Verification Cycles:</strong> {variant.verification_cycles.toLocaleString()}</p>
                 <p><strong>Verification:</strong> {variant.is_valid ? 'Valid' : 'Invalid'}</p>
               </div>
             ))}

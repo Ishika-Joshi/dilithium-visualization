@@ -13,6 +13,8 @@ VARIANTS = {
     "Dilithium5": Dilithium5
 }
 
+CPU_FREQUENCY_HZ = 3_000_000_000  # 3 GHz, adjust to your CPU
+
 # --- Comparison Endpoint ---
 @app.route('/api/compare', methods=['POST'])
 def compare_dilithium_variants():
@@ -22,22 +24,35 @@ def compare_dilithium_variants():
     for name, Dilithium in VARIANTS.items():
         variant_result = {}
         variant_result['name'] = name
-        start_time = time.time()
+
+        # Keygen
+        start_time = time.perf_counter()
         pk, sk = Dilithium.keygen()
-        keygen_time = time.time() - start_time
+        keygen_time = time.perf_counter() - start_time
+        keygen_cycles = int(keygen_time * CPU_FREQUENCY_HZ)
         variant_result['keygen_time'] = keygen_time
+        variant_result['keygen_cycles'] = keygen_cycles
         variant_result['pk_size'] = len(pk)
         variant_result['sk_size'] = len(sk)
-        start_time = time.time()
+
+        # Signing
+        start_time = time.perf_counter()
         sig = Dilithium.sign(sk, msg)
-        signing_time = time.time() - start_time
+        signing_time = time.perf_counter() - start_time
+        signing_cycles = int(signing_time * CPU_FREQUENCY_HZ)
         variant_result['signing_time'] = signing_time
+        variant_result['signing_cycles'] = signing_cycles
         variant_result['sig_size'] = len(sig)
-        start_time = time.time()
+
+        # Verification
+        start_time = time.perf_counter()
         is_valid = Dilithium.verify(pk, msg, sig)
-        verification_time = time.time() - start_time
+        verification_time = time.perf_counter() - start_time
+        verification_cycles = int(verification_time * CPU_FREQUENCY_HZ)
         variant_result['verification_time'] = verification_time
+        variant_result['verification_cycles'] = verification_cycles
         variant_result['is_valid'] = is_valid
+
         output.append(variant_result)
     return jsonify(output)
 
